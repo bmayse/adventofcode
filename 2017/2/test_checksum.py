@@ -17,16 +17,13 @@ multi_line_with_divisibility = "7   13 28   12 \n \n    7  13 5 31   25 6"
 
 class TestChecksumFunctions(unittest.TestCase):
     def test_line_to_number_array(self):
-        self.assertEqual(single_line_result, line_to_number_array(single_line))
+        self.assertEqual(single_line_result, list(line_to_number_array(single_line)))
 
     def test_line_to_number_array_empty(self):
-        self.assertEqual([], line_to_number_array(""))
-
-    def test_list_lines_with_processor_number_array_line(self):
-        self.assertEqual(multi_line_result, list_lines_with_processor(multi_line, line_to_number_array))
+        self.assertEqual([], list(line_to_number_array("")))
 
     def test_list_lines_with_processor_ensure_provided_processor_used(self):
-        self.assertEqual(["a", "a", "a", "a"], list_lines_with_processor(multi_line, test_sublist_generator))
+        self.assertEqual(["a", "a", "a", "a"], list(list_lines_with_processor(multi_line, test_sublist_generator)))
 
     def test_get_max_difference(self):
         self.assertEqual(455, get_max_difference(single_line_result))
