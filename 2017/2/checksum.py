@@ -17,11 +17,11 @@ def get_max_difference(numbers):
 
 
 def get_only_divisible_result(numbers):
-    if len(numbers) == 0: return 0
     for x,y in itertools.permutations(numbers, 2):
         result = x / y
         if result == x//y and result != 1:
             return result
+    return 0
 
 
 def get_sum_of_line_evaluations(input, evaluate_line):
