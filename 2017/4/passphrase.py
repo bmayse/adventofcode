@@ -5,12 +5,12 @@ def read_file(filename):
 
 
 def passphrase_contains_no_duplicates(passphrase):
-    words = (word for word in passphrase.split())
+    words = list(word for word in passphrase.split())
     return len(words) == len(set(words))
 
 
 def passphrase_contains_no_anagrams(passphrase):
-    words = (word for word in passphrase.split())
+    words = list(word for word in passphrase.split())
     return len(words) == len(set(str(sorted(word)) for word in words))
 
 
