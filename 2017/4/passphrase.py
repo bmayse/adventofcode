@@ -1,15 +1,16 @@
 def read_file(filename):
     with open(filename) as file:
-        return (line for line in file.readlines())
+        for line in file:
+            yield line
 
 
 def passphrase_contains_no_duplicates(passphrase):
-    words = list(word for word in passphrase.split())
+    words = (word for word in passphrase.split())
     return len(words) == len(set(words))
 
 
 def passphrase_contains_no_anagrams(passphrase):
-    words = list(word for word in passphrase.split())
+    words = (word for word in passphrase.split())
     return len(words) == len(set(str(sorted(word)) for word in words))
 
 
